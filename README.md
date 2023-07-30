@@ -21,14 +21,14 @@ docker-compose up
 4. Create a superuser to access the Django admin panel
 
 ```
-docker ps
+python3 manage.py createsuperuser
 ```
 
 Copy container id of image "test_parser-django_test_parser" and put instead of CID
 
 ```
+docker ps
 docker exec -t -i CID bash
-python3 manage.py createsuperuser
 ```
 
 Create username and password. 
