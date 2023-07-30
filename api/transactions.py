@@ -17,7 +17,7 @@ from selenium import webdriver
 from typing import List
 
 
-class SQLTransactions():
+def sql_delete_all_data():
     ''' for cleaning table products '''
 
     password = os.getenv('DB_PASSWORD')
@@ -29,17 +29,14 @@ class SQLTransactions():
     db = create_engine(
         f'mysql://{user}:{password}@{host}/{name}')
     conn = db.connect()
-
-    def delete_all_data(self) -> None:
-        ''' clean table products'''
-        self.db.execute(
-            "DELETE FROM products;"
-        )
+    db.execute(
+        "DELETE FROM products;"
+    )
 
 
 def push_data_to_db(product_list: List[Product], driver: webdriver.Remote) -> None:
     ''' clean db and push product list to db '''
-    SQLTransactions().delete_all_data()
+    sql_delete_all_data()
     Product.objects.bulk_create(product_list)
     driver.quit()
     send_tg_message(len(product_list))
