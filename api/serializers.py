@@ -15,6 +15,7 @@ class GetProductSerializer(serializers.ModelSerializer):
             'current_price',
             'without_discount_price',
             'discount',
+            'product_url',
             'rating',
             'in_stock',
             'image'
