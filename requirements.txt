@@ -1,0 +1,16 @@
+Django == 3.2.20
+django-createsuperuser==2020.12.3
+django-reset-migrations==0.4.0
+requests==2.27.1
+python-dotenv==1.0.0
+djangorestframework==3.14
+drf-yasg==1.21.6
+celery==5.2.7
+redis==4.3.4
+beautifulsoup4==4.12.2
+selenium==4.10.0
+st-undetected-chromedriver==3.1.1
+sqlalchemy==1.4.40
+django-adminlte3==0.1.6
+mysqlclient==2.1.0
+python-telegram-bot==20.4

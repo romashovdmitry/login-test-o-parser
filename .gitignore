@@ -1,0 +1,10 @@
+# python files
+__pycache__
+*.pyc
+# Django files
+*/migrations
+
+# secret config data like telegram TOKEN and an other
+.env
+
+/test_parser/static_root/*
