@@ -42,16 +42,12 @@ class SiteParse:
             driver: webdriver.Remote
                     ) -> str:
         ''' for cases where classes will be changed '''
-        product_card_class = None
         if len(soup.find_all('div', class_=self.defaul_product_card_class)) > 0:
             return self.defaul_product_card_class
         elif driver.find_elements(By.XPATH, '//*[@id="paginatorContent"]/div/div/div[1]') > 0:
             product_card = driver.find_element(By.XPATH, '//*[@id="paginatorContent"]/div/div/div[1]')
             product_card_class = product_card.get_attribute('class')
-        if product_card_class:
-            return product_card_class
-        time.sleep(1)
-        self.define_class(soup=BeautifulSoup(driver.page_source, 'html.parser'), driver=driver)
+        return product_card_class
 
     def wait_elements(self, driver: webdriver.Remote) -> List[BeautifulSoup]:
         ''' to wait necessary elements and return them'''
