@@ -38,6 +38,7 @@ Create username and password.
 Open [Swagger page](http://127.0.0.1:8000/docs/). 
 
 Parse Ozon, enjoy products and get notifications by Telegram!
+To get list of products from bot just send text "Список товаров".
 
 ## Stack
 
