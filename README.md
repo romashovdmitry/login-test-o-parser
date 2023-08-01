@@ -62,7 +62,7 @@ To get list of products from bot just send text "Список товаров".
 
 # * about parsing. 
 
-There is a method [define_class](https://github.com/romashovdmitry/login-test-o-parser/blob/f7bbae15c69d8020695856b861280f58522ff517/api/parser.py#L39-L50) in class SiteParse. This method has been designed to handle scenarios where the class for the <div> tag has been modified or changed. In such cases, if the application is unable to locate the product by class, it will fallback to searching by XPath.
+There is a method [define_class](https://github.com/romashovdmitry/login-test-o-parser/blob/f7bbae15c69d8020695856b861280f58522ff517/api/parser.py#L39-L50) in class SiteParse. This method has been designed to handle scenarios where the class for the tag has been modified or changed. In such cases, if the application is unable to locate the product by class, it will fallback to searching by XPath.
 
 The ideal approach is to implement this fallback check for all elements in the application. It aims to follow a priority-based strategy as follows:
 
