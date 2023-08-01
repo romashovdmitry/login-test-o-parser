@@ -59,3 +59,13 @@ To get list of products from bot just send text "Список товаров".
     - POST: create new campaign
 - /v1/products/{id}
     - GET: retrieve information about a single product by id
+
+# * about parsing. 
+
+There is a method [define_class](https://github.com/romashovdmitry/login-test-o-parser/blob/f7bbae15c69d8020695856b861280f58522ff517/api/parser.py#L39-L50) in class SiteParse. This method has been designed to handle scenarios where the class for the <div> tag has been modified or changed. In such cases, if the application is unable to locate the product by class, it will fallback to searching by XPath.
+
+The ideal approach is to implement this fallback check for all elements in the application. It aims to follow a priority-based strategy as follows:
+
+1. Check by Style: Initially, try locating elements using the style attribute.
+2. XPath Fallback: If the element is not found by style, attempt to find it using XPath.
+3. Selector Fallback: If the element cannot be found by XPath, try locating it using the CSS selector.
