@@ -54,12 +54,21 @@ To get list of products from bot just send text "Список товаров".
 
 ## API Endpoints
 
-- /v1/products/
-    - GET: get list of all campaigns
-    - POST: create new campaign
+***Allow Any Permission***
+- /token/
+    - GET: returns access and refresh token
+- /token/refresh/
+    - GET: returns new access token via refresh token
+***Admin Only Permission***
 - /v1/products/{id}
     - GET: retrieve information about a single product by id
-
+***JWT Authentication Permission***
+- /api/users/delete_me
+  - POST: delete autheniticated user
+- /api/users/get/
+  - GET: get information about autheniticated user
+- /api/update_me/
+  - PUT: update information about autheniticated user
 # * about parsing. 
 
 There is a method [define_class](https://github.com/romashovdmitry/login-test-o-parser/blob/f7bbae15c69d8020695856b861280f58522ff517/api/parser.py#L39-L50) in class SiteParse. This method has been designed to handle scenarios where the class for the tag has been modified or changed. In such cases, if the application is unable to locate the product by class, it will fallback to searching by XPath.
