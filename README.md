@@ -59,9 +59,11 @@ To get list of products from bot just send text "Список товаров".
     - GET: returns access and refresh token
 - /token/refresh/
     - GET: returns new access token via refresh token
+
 ***Admin Only Permission***
 - /v1/products/{id}
     - GET: retrieve information about a single product by id
+
 ***JWT Authentication Permission***
 - /api/users/delete_me
   - POST: delete autheniticated user
