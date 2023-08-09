@@ -55,8 +55,8 @@ To get list of products from bot just send text "Список товаров".
 ## API Endpoints
 
 - /v1/products/
-    - GET: get list of all campaigns
-    - POST: create new campaign
+    - GET: get list of all products
+    - POST: parse products
 - /v1/products/{id}
     - GET: retrieve information about a single product by id
 
