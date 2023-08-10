@@ -49,7 +49,9 @@ services:
             - test_parser_redis
     chrome:
         image: selenium/standalone-chrome:latest
-        shm_size: 2g
+        shm_size: 8g
+        restart: always
+        hostname: chrome
     start_bot:
         build: .
         volumes:
