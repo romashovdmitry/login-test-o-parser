@@ -44,7 +44,7 @@ class SiteParse:
         ''' for cases where classes will be changed '''
         if len(soup.find_all('div', class_=self.defaul_product_card_class)) > 0:
             return self.defaul_product_card_class
-        elif driver.find_elements(By.XPATH, '//*[@id="paginatorContent"]/div/div/div[1]') > 0:
+        elif len(driver.find_elements(By.XPATH, '//*[@id="paginatorContent"]/div/div/div[1]')) > 0:
             product_card = driver.find_element(By.XPATH, '//*[@id="paginatorContent"]/div/div/div[1]')
             product_card_class = product_card.get_attribute('class')
         return product_card_class
@@ -68,9 +68,9 @@ class SiteParse:
     def get_page(self, url='https://www.ozon.ru/seller/1/products/') -> object:
         ''' got throw cloduflare'''
         user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        options = uc.ChromeOptions()
+        options = webdriver.ChromeOptions()
         options.add_argument(f"user-agent={user_agent}")
-        options.add_argument("--headless")    
+        options.add_argument("--headless")
         driver = webdriver.Remote("http://chrome:4444/wd/hub", options=options)
         driver.get(url)
         while 'Just a moment' in driver.title:
@@ -86,9 +86,9 @@ class SiteParse:
 
             image = elem.find("img").get('src')
             name = elem.find("span", class_='tsBody500Medium').text
-            product_url = SITE_URL + elem.find('a', class_='tile-hover-target h2y hy3').get('href')
+            product_url = SITE_URL + elem.find('a', class_='mi2 tile-hover-target').get('href')
             product_url = product_url.split('?')[0]
-            price = int(elem.find("span", class_='c3-a1 tsHeadline500Medium c3-b9').text[:-2].replace(" ", "").replace("\u2009", ""))
+            price = float(elem.find("span", class_='c3-a1 tsHeadline500Medium c3-b9').text[:-2].replace(" ", "").replace("\u2009", "").replace(",", "."))
             # optional for card values
             try:
                 without_discount_price = int(elem.find('span', class_="c3-a1 tsBodyControl400Small c3-b0").text[:-2].replace(" ", "").replace("\u2009", ""))
