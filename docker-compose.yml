@@ -49,7 +49,7 @@ services:
             - test_parser_redis
     firefox:
         image: selenium/standalone-firefox:latest
-        shm_size: 8g
+        shm_size: 2g
         restart: always
         hostname: firefox
         ports:
