@@ -47,11 +47,13 @@ services:
         depends_on:
             - django_test_parser
             - test_parser_redis
-    chrome:
-        image: selenium/standalone-chrome:latest
+    firefox:
+        image: selenium/standalone-firefox:latest
         shm_size: 8g
         restart: always
-        hostname: chrome
+        hostname: firefox
+        ports:
+        - "5555:4444"
     start_bot:
         build: .
         volumes:
